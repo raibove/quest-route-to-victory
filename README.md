@@ -23,11 +23,11 @@ For each step, describe all actions the user needs to perform to complete the st
 Before submitting your quest for review, test your quest in snack and check the instructions you wrote. Make sure that by following these instructions, you are able to successfully complete the quest.  
 ### Instructions for completing the quest: 
 #### Step 1 [find_the_flaw]: 
-- Learning Objective: Identify the issue that may compromise the security of the private pages.
-- Narrative: Product team asks to find the issue in the routing.
-- Instructions: Make sure you are not sign in to the wesite. Now, try to access private pages like settings or page to add new item.
-- How do users pass to the next step: User should find atleast one private page and send the correct keyword to snack.
-- Hints: Check the routing in App.js file or expore the wesite to find pages that should be only accessible after login.
+- Learning Objective: Identify which restricted pages are accessible without login and verify the issue by replicating it.
+- Narrative: Product team received a complain that user can access private pages without login. Your task is to find if this issue is true and let the team know by telling atleast one restricted page that is accessible without login.
+- Instructions: Make sure you are not sign in to the wesite. Now, try to explore the site and figure out which routes are accessbile without login. Once you find any page that should have restricted access message on Snack.
+- How do users pass to the next step: User should find atleast one private page and send the correct keyword to Snack.
+- Hints: Check the routing in App.js file or explore the wesite to find pages that should be only accessible after login.
 
  
 #### Step 2 [guard_the_gates]:

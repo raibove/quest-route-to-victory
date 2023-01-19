@@ -1,15 +1,16 @@
-id: funneldrop_analyze_data
+id: find_the_flaw
 learningObjectives: 
-- Analyzing log data 
+- Identify which restricted pages are accessible without login and verify the issue by replicating it. 
 hints:
-- Try to find what all the users that drop in the funnel have in common
+- To know what all routes are configured, check the App.js file.  
+- Navigate to each route and if you think it should be a restricted route accessible to only authenticated users, message the page name on Snack.
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "So, We've identified a very concerning drop on our website. Here’s a data dump of our analytics with the recent traffic and churned users. Can you please have a look, identify the problem, and fix it? [You can find the dump here](https://drive.google.com/file/d/1ax-K7cpTp24fDZaNZNRINX3FJT6BiDv6/view)."
+      - text: "So, We've identified a very concerning drop on our website. Here’s a data dump of our analytics with the recent traffic and churned users. Can you please have a look, identify the problem, and fix it?"
         delay: 2000
       - text: "Once you’ve found it, please drop me a message here and let me know what type of users are dropping - so we'll be able to understand the impact and start working on a solution."
         delay: 3500
