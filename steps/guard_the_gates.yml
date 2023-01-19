@@ -14,13 +14,7 @@ startFlow:
         delay: 1500
       - text: "To prevent this happening from future our team has decided to fix the issue. To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages. You can use `react-router-dom` to handle the logic."
         delay: 1500
-      - text: "Can you please create the component and add necessary logic to ensure only authenticated users can access the resticted pages. "
-githubActions:
-  frontend:
-    capabilities:
-    - jest-puppeteer
-    - puppeteer
-    testFile: "profile.test.js"
+      - text: "Can you please create the component and add necessary logic to ensure only authenticated users can access the restricted pages. "
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
