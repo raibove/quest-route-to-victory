@@ -10,9 +10,9 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "So, We've identified a very concerning drop on our website. Here’s a data dump of our analytics with the recent traffic and churned users. Can you please have a look, identify the problem, and fix it?"
+      - text: "So, We've received a report that all the pages are accessible without logging in. Someone accidentally landed on a page that theyy think should not be accessible without authentication. Can you please have a look and find at least one page that should only be accessed by logged in users, but you can access it without logging in"
         delay: 2000
-      - text: "Once you’ve found it, please drop me a message here and let me know what type of users are dropping - so we'll be able to understand the impact and start working on a solution."
+      - text: "Once you’ve found it, please drop me a message here and let me know the route name of the page you were able to access without logging in? It will help us to investigate and start working on a solution."
         delay: 3500
 trigger:
   type: user_message
@@ -24,7 +24,7 @@ trigger:
       - conditionId: text_match_regex
         params:
           text: "${userMessageText}"
-          regex: mobile|android|ios|iphobe|non web
+          regex: /editor|editor|/settings|settings
           flags: i
       then:
         do:
@@ -32,8 +32,8 @@ trigger:
           params:
             person: keen
             messages:
-            - text: Good catch! I'll let the support team know.
-              delay: 1300
+            - text: Good catch! Thanks for letting us know, We will identify the issue and get back to you.
+              delay: 1500
         - actionId: finish_step
       else:
         do:
