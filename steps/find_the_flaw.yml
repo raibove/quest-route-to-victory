@@ -35,7 +35,7 @@ trigger:
             person: keen
             messages:
             - text: Good catch! Thanks for letting us know. Our team will now investigate and keep you updated on our progress.
-              delay: 8500
+              delay: 3500
         - actionId: finish_step
       else:
         do:
