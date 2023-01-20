@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import PrivateRoute from './components/PrivateRoute';
 import { MemoryRouter } from 'react-router-dom';
-import Settings from "../components/Settings";
-import Login from "../components/Login";
+import Settings from "./components/Settings";
+import Login from "./components/Login";
 
 
 describe('PrivateRoute', () => {
