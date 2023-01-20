@@ -2,7 +2,7 @@ id: route_to_victory
 title: Route to Vicory
 description: "When it comes to product like anythink, security is a key. Imagine your team received a complain from user who was able to access private page without logging in. This is a worst-scenario, as it affects users and can damage the reputation of the site. Its time for you to learn how to handle the complain by identifying, replicating and resolving routing issues in your product."
 summary: "You learned to add protected routing to safeguard your pages with ease. Using this quest you will be a routing expert in no time."
-level: Beginner
+level: beginner
 steps:
 - find_the_flaw
 - guard_the_gates
