@@ -12,9 +12,7 @@ startFlow:
       messages:
       - text: "Welcome to the first step of the 'Route to Victory'. I'm Keen, one of your colleagues here at Anythink."
         delay: 700
-      - text: "I'm here to help you with this quest. We've received a report that user can access all pages without logging in. This is a  security vulnerability that we need to address."
-        delay: 1500
-      - text: " I need your help to find a page that should only be for logged in users, but is currently accessible without logging in?"
+      - text: "I'm here to help you with this quest. We've received a report that user can access all pages without logging in. This is a  security vulnerability that we need to address. I need your help to find a page that should only be for logged in users, but is currently accessible without logging in?"
         delay: 2000
       - text: "Once you’ve found it, please drop me a message here and let me know the route name of that page. It will help us to investigate and fix the issue."
         delay: 2500
@@ -37,7 +35,7 @@ trigger:
             person: keen
             messages:
             - text: Good catch! Thanks for letting us know. Our team will now investigate and keep you updated on our progress.
-              delay: 2500
+              delay: 4500
         - actionId: finish_step
       else:
         do:
