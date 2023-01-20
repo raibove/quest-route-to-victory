@@ -12,7 +12,7 @@ describe('PrivateRoute', () => {
     <PrivateRoute currentUser={currentUser} component={Component} />
     </MemoryRouter>
     );
-    expect(screen.getByText('Protected Content')).toBeInTheDocument();
+    expect(screen.getByText('Protected Content')).not.toBeNull();
   });
 
   test('does not render the component if the user is not authenticated', () => {
