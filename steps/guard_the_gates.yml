@@ -12,7 +12,7 @@ startFlow:
       person: keen
       messages:
       - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Few pages like **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them. To prevent this happening from future our team has decided to fix the issue."
-        delay: 2500
+        delay: 3500
       - text: "To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages."
         delay: 2500
       - text: "Can you please create a `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
@@ -37,26 +37,14 @@ trigger:
             params:
               person: keen
               message: "On it, I'll review the changes right away."
-        github_pr_workflow_complete_success:
           if:
             conditions:
             - conditionId: github_is_file_added
+              equals: false
               params:
                 fileName: frontend/src/components/PrivateRoute.js
-            then:
-              do:
-                - actionId: bot_message
-                  params:
-                    person: keen
-                    messages:
-                    - text: "This looks great! Just approved. Go ahead and merge."
-                      delay: 2000
-                - actionId: github_pr_approve
-                  params:
-                    person: keen
-                    message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
-            else:
-              do:
+              then:
+                do:
                 - actionId: bot_message
                   params:
                     person: keen
@@ -67,6 +55,18 @@ trigger:
                   params:
                     person: keen
                     message: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
+        github_pr_workflow_complete_success:
+          do:
+            - actionId: bot_message
+              params:
+                person: keen
+                messages:
+                - text: "This looks great! Just approved. Go ahead and merge."
+                  delay: 2000
+            - actionId: github_pr_approve
+              params:
+                person: keen
+                message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
         github_pr_workflow_complete_failure:
           do:
           - actionId: bot_message
