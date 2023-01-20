@@ -15,9 +15,9 @@ startFlow:
         delay: 2500
       - text: "To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages."
         delay: 2500
-      - text: "Can you please create the `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
+      - text: "Can you please create a `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
         delay: 5800
-      - text: "Don't hesitate to ask for my help!!"
+      - text: "Don't hesitate to ask my help!!"
         delay: 800
 trigger:
   type: github_pr_lifecycle_status
@@ -37,24 +37,6 @@ trigger:
             params:
               person: keen
               message: "On it, I'll review the changes right away."
-          if:
-            conditions:
-            - conditionId: github_is_file_added
-              equals: false
-              params:
-                fileName: frontend/src/components/PrivateRoute.js
-            then:
-              do:
-              - actionId: bot_message
-                params:
-                  person: keen
-                  messages:
-                    - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
-                      delay: 1400
-              - actionId: github_pr_reject
-                params:
-                  person: keen
-                  message: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
         github_pr_workflow_complete_success:
           if:
             conditions:
@@ -79,12 +61,12 @@ trigger:
                   params:
                     person: keen
                     messages:
-                      - text: "that doesn't look right. Did you create PrivateRoute.js in Components folder?"
+                      - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
                         delay: 1400
                 - actionId: github_pr_reject
                   params:
                     person: keen
-                    message: "that doesn't look right. Did you create PrivateRoute.js in Components folder?"
+                    message: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
         github_pr_workflow_complete_failure:
           do:
           - actionId: bot_message
@@ -100,3 +82,9 @@ trigger:
         github_pr_merged:
           do:
           - actionId: finish_step
+githubActions:
+  backend:
+  frontend:
+    capabilities:
+    - @testing-library/react
+    testFile: "private_routes.test.js"
