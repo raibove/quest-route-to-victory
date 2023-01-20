@@ -18,7 +18,7 @@ startFlow:
       - text: "Can you please create a `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
         delay: 5800
       - text: "Don't hesitate to ask my help!!"
-        delay: 800
+        delay: 3800
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -86,5 +86,5 @@ githubActions:
   backend:
   frontend:
     capabilities:
-    - \@testing-library/react
+    - \@testing-library/react@12.1.5
     testFile: "private_routes.test.js"
