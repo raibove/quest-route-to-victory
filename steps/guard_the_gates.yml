@@ -11,11 +11,16 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Specifically, the **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them."
-        delay: 1800
-      - text: "To prevent this happening from future our team has decided to fix the issue. To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages."
+      - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Few pages like **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them."
+        delay: 2000
+      - text: "To prevent this happening from future our team has decided to fix the issue."
+        delay: 700
+      - text: "To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages."
         delay: 1500
       - text: "Can you please create the `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
+        delay: 800
+      - text: "Don't hesitate to ask for my help!!"
+        delay: 800
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -60,6 +65,10 @@ trigger:
                     messages:
                       - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
                         delay: 1400
+                - actionId: github_pr_reject
+                  params:
+                    person: keen
+                    message: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
         github_pr_workflow_complete_failure:
           do:
           - actionId: bot_message

@@ -10,10 +10,14 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "So, We've received a report that all the pages are accessible without logging in. Someone accidentally landed on a page that they think should not be accessible without authentication. Can you please have a look and find a page that you think should only be accessed by logged in users, but now its accessible without you logging in as well."
+      - text: "Welcome to the first step of the 'Route to Victory'. I'm Keen, one of your colleagues here at Anythink."
+        delay: 700
+      - text: "I'm here to help you with this quest. We've received a report that user can access all pages without logging in. This is a  security vulnerability that we need to address."
+        delay: 1500
+      - text: " I need your help to find a page that should only be for logged in users, but is currently accessible without logging in?"
         delay: 2000
-      - text: "Once you’ve found it, please drop me a message here and let me know the route name of the page you were able to access without logging in. It will help us to investigate and start working on a solution."
-        delay: 3500
+      - text: "Once you’ve found it, please drop me a message here and let me know the route name of that page. It will help us to investigate and fix the issue."
+        delay: 2500
 trigger:
   type: user_message
   params: 
@@ -32,8 +36,8 @@ trigger:
           params:
             person: keen
             messages:
-            - text: Good catch! Thanks for letting us know, We will identify the issue and get back to you.
-              delay: 1500
+            - text: Good catch! Thanks for letting us know. Our team will now investigate and keep you updated on our progress.
+              delay: 2500
         - actionId: finish_step
       else:
         do:
@@ -41,5 +45,7 @@ trigger:
           params:
             person: keen
             messages:
-            - text: Try again! I'm sure you'll figure this out.
+            - text: I'm sorry, but that doesn't seem to be the correct route name. 
+              delay: 700
+            - text: Could you please double check and let me know the correct route name of the page you were able to access without logging in.
               delay: 2500
