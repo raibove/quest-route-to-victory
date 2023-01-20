@@ -43,18 +43,18 @@ trigger:
               equals: false
               params:
                 fileName: frontend/src/components/PrivateRoute.js
-              then:
-                do:
-                - actionId: bot_message
-                  params:
-                    person: keen
-                    messages:
-                      - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
-                        delay: 1400
-                - actionId: github_pr_reject
-                  params:
-                    person: keen
-                    message: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
+            then:
+              do:
+              - actionId: bot_message
+                params:
+                  person: keen
+                  messages:
+                    - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
+                      delay: 1400
+              - actionId: github_pr_reject
+                params:
+                  person: keen
+                  message: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
         github_pr_workflow_complete_success:
           do:
             - actionId: bot_message
