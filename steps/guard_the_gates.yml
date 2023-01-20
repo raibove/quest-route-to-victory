@@ -3,6 +3,7 @@ learningObjectives:
 - Users will learn how to restrict access to pages by creating a PrivateRoute component which will redirect the user to Login Page if user try to access protected page without authentication.
 hints:
 - User will need to create a new component called as `PrivateRoute`.
+- You can use `react-router-dom` to handle the logic.
 - User can refer to the example from documentaion to understand how to create private route https://v5.reactrouter.com/web/example/auth-workflow
 startFlow:
   do:
@@ -11,10 +12,10 @@ startFlow:
       person: keen
       messages:
       - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Specifically, the **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them."
+        delay: 1800
+      - text: "To prevent this happening from future our team has decided to fix the issue. To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages."
         delay: 1500
-      - text: "To prevent this happening from future our team has decided to fix the issue. To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages. You can use `react-router-dom` to handle the logic."
-        delay: 1500
-      - text: "Can you please create the component and add necessary logic to ensure only authenticated users can access the restricted pages. "
+      - text: "Can you please create the `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -34,17 +35,31 @@ trigger:
               person: keen
               message: "On it, I'll review the changes right away."
         github_pr_workflow_complete_success:
-          do:
-          - actionId: bot_message
-            params:
-              person: keen
-              messages:
-              - text: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
-                delay: 2000
-          - actionId: github_pr_approve
-            params:
-              person: keen
-              message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
+          if:
+            conditions:
+            - conditionId: github_is_file_added
+              params:
+                fileName: frontend/src/components/PrivateRoute.js
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                    - text: "This looks great! Just approved. Go ahead and merge."
+                      delay: 2000
+                - actionId: github_pr_approve
+                  params:
+                    person: keen
+                    message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                      - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in Components folder?"
+                        delay: 1400
         github_pr_workflow_complete_failure:
           do:
           - actionId: bot_message

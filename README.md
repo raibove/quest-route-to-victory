@@ -2,7 +2,7 @@
 
 ## Quest Details 
 #### title: Route to Victory
-#### level: Intermediate
+#### level: Beginner
 #### skills: frontend
 #### dependencies: docker_localsetup
 

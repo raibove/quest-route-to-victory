@@ -10,9 +10,9 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "So, We've received a report that all the pages are accessible without logging in. Someone accidentally landed on a page that theyy think should not be accessible without authentication. Can you please have a look and find at least one page that should only be accessed by logged in users, but you can access it without logging in"
+      - text: "So, We've received a report that all the pages are accessible without logging in. Someone accidentally landed on a page that they think should not be accessible without authentication. Can you please have a look and find a page that you think should only be accessed by logged in users, but now its accessible without you logging in as well."
         delay: 2000
-      - text: "Once you’ve found it, please drop me a message here and let me know the route name of the page you were able to access without logging in? It will help us to investigate and start working on a solution."
+      - text: "Once you’ve found it, please drop me a message here and let me know the route name of the page you were able to access without logging in. It will help us to investigate and start working on a solution."
         delay: 3500
 trigger:
   type: user_message
