@@ -12,6 +12,5 @@ skills:
 - frontend
 - debugging
 - observability
-- communication
 questDependency: docker_localsetup
 slogan: Shield Your Routes, Secure Your Victory

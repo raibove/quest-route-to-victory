@@ -1,6 +1,6 @@
 id: lock_the_gates
 learningObjectives: 
-- Users will learn how to use PrivateRoute component to protect unautherized access on restricted pages.
+- Update the routing and use the PrivateRoute component to protect unautherized access on restricted pages.
 hints:
 - Use the Private route component for settings and editor page.
 - Pass createUser as props to PrivateRoute.

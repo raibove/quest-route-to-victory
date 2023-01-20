@@ -32,12 +32,12 @@ describe('PrivateRoute', () => {
 
 
 describe('PrivateRoute', () => {
-    test('unauthenticated users cannot access settings page', async () => {
+    test('authenticated users can access settings page', async () => {
       const wrapper = mount(
         <MemoryRouter initialEntries={['/']}>
-          <PrivateRoute currentUser={null} path="/login" component={Login} />
+          <PrivateRoute currentUser={{username:"test", email:"test@mail.com"}} path="/settings" component={Settings} />
         </MemoryRouter>
       );
-      expect(wrapper.find(Settings)).not.toHaveLength(0);
+      expect(wrapper.find(Login)).not.toHaveLength(0);
     });
 });
