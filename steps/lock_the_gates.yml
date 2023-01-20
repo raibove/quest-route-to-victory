@@ -10,9 +10,9 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Excellent work! We now have a **PrivateRoute** component which we can prevent unauthenticated users from accessing restricted pages."
+      - text: "Excellent work! We now have a **PrivateRoute** component which we can use to prevent unauthenticated users from accessing restricted pages."
         delay: 2300
-      - text: "Can you use **PrivateRoute** component for the **/settings** and **/editor** route."
+      - text: "Can you use **PrivateRoute** component for the **/settings** and **/editor** route so that only authenticated users can access it."
         delay: 2400
       - text: "Make a PR once you have made the changes."
         delay: 2500

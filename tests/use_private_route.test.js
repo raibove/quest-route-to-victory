@@ -3,8 +3,6 @@ import { mount } from 'enzyme';
 import PrivateRoute from './components/PrivateRoute';
 import { MemoryRouter } from 'react-router-dom';
 import Settings from "./components/Settings";
-import Login from "./components/Login";
-
 
 describe('PrivateRoute', () => {
     test('unauthenticated users cannot access settings page', async () => {
@@ -38,6 +36,6 @@ describe('PrivateRoute', () => {
           <PrivateRoute currentUser={{username:"test", email:"test@mail.com"}} path="/settings" component={Settings} />
         </MemoryRouter>
       );
-      expect(wrapper.find(Login)).not.toHaveLength(0);
+      expect(wrapper.find(Settings)).not.toHaveLength(0);
     });
 });
