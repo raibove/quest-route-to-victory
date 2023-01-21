@@ -1,21 +1,22 @@
 id: guard_the_gates
 learningObjectives: 
-- Create a PrivateRoute component which will redirect the user to Login Page if user try to access restricted pages without authentication.
+- Create a PrivateRoute component that will redirect the user to Login Page if the user tries to access restricted pages without authentication.
 hints:
-- User will need to create a new component called as `PrivateRoute`.
+- Create a new component called as `PrivateRoute` in components folder.
 - You can use `react-router-dom` to handle the logic.
-- User can refer to the example from documentaion to understand how to create private route https://v5.reactrouter.com/web/example/auth-workflow
+- Refer to the example from documentation  to understand how to create private route https://v5.reactrouter.com/web/example/auth-workflow
+- Make use if currentUser to check if user is logged-in or not.
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Few pages like **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them. To prevent this from happening in the future, our team has decided to resolve the issue."
+      - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Few pages like the **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them. To prevent this from happening in the future, our team has decided to resolve the issue."
         delay: 3500
-      - text: "To fix this, you need to create a React Component called as `PrivateRoute` that will handle protection of these pages."
+      - text: "To fix this, you need to create a React Component called as `PrivateRoute` that will handle the protection of these pages."
         delay: 3500
-      - text: "Can you please create a `PrivateRoute` component and add necessary logic to ensure only authenticated users can access the restricted pages. Create a PR once you are done."
+      - text: "Can you please create a `PrivateRoute` component and add the necessary logic to ensure only authenticated users can access the restricted pages? Create a PR once you are done."
         delay: 3500
       - text: "Don't hesitate to ask my help!!"
         delay: 5800
@@ -49,12 +50,12 @@ trigger:
                 params:
                   person: keen
                   messages:
-                    - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in components folder?"
+                    - text: "Umm, that doesn't look right. Did you create PrivateRoute.js in the components folder?"
                       delay: 1400
               - actionId: github_pr_reject
                 params:
                   person: keen
-                  message: "Umm, that doesn't look right. Did you create PrivateRoute.js in components folder?"
+                  message: "Umm, that doesn't look right. Did you create PrivateRoute.js in the components folder?"
         github_pr_workflow_complete_success:
           do:
           - actionId: bot_message

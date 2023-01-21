@@ -1,6 +1,6 @@
 id: lock_the_gates
 learningObjectives: 
-- Update the routing and use the PrivateRoute component to protect unautherized access on restricted pages.
+- Update the routing and use the PrivateRoute component to prevent unauthenticated users from accessing restricted pages.
 hints:
 - Use the Private route component for settings and editor page.
 - Pass createUser as props to PrivateRoute.
@@ -12,7 +12,7 @@ startFlow:
       messages:
       - text: "Excellent work! We now have a **PrivateRoute** component which we can use to prevent unauthenticated users from accessing restricted pages."
         delay: 2300
-      - text: "Can you use **PrivateRoute** component for the **/settings** and **/editor** route so that only authenticated users can access it."
+      - text: "Can you use the **PrivateRoute** component for the **/settings** and **/editor** route so that only authenticated users can access it."
         delay: 2400
       - text: "Make a PR once you have made the changes."
         delay: 2500
@@ -47,12 +47,12 @@ trigger:
                 params:
                   person: keen
                   messages:
-                    - text: "Umm, that doesn't look right. Did you use PrivateRoute component?"
+                    - text: "Umm, that doesn't look right. Did you use the PrivateRoute component?"
                       delay: 1400
               - actionId: github_pr_reject
                 params:
                   person: keen
-                  message: "Umm, that doesn't look right. Did you use PrivateRoute component?"
+                  message: "Umm, that doesn't look right. Did you use the PrivateRoute component?"
         github_pr_workflow_complete_success:
           do:
           - actionId: bot_message
