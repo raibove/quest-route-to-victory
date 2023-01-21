@@ -36,9 +36,10 @@ trigger:
               message: "On it, I'll review the changes right away."
           if:
             conditions:
-            - conditionId: github_is_file_modified
+            - conditionId: github_does_file_contain
               equals: false
               params:
+                regex: PrivateRoute
                 fileName: frontend/src/components/App.js
             then:
               do:
