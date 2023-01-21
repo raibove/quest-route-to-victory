@@ -36,6 +36,6 @@ describe('PrivateRoute', () => {
           <PrivateRoute currentUser={{username:"test", email:"test@mail.com"}} path="/settings" component={Settings} />
         </MemoryRouter>
       );
-      expect(wrapper.find(Settings)).not.toHaveLength(0);
+      expect(wrapper.find(Settings)).toHaveLength(1);
     });
 });

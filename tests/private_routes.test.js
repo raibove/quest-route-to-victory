@@ -19,8 +19,8 @@ describe('PrivateRoute', () => {
     const Component = () => <div>Protected Content</div>;
     const currentUser = null;
     render(
-        <MemoryRouter initialEntries={['/']}>
-    <PrivateRoute currentUser={currentUser} component={Component} />
+    <MemoryRouter initialEntries={['/']}>
+      <PrivateRoute currentUser={currentUser} component={Component} />
     </MemoryRouter>
     );
     expect(screen.queryByText('Protected Content')).toBeNull();
