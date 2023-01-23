@@ -13,7 +13,7 @@ describe('PrivateRoute configuration for settings page', () => {
 
       const payload = {
         errors: "email or password: is invalid",
-    }
+      }
 
       store.dispatch({ type: 'REGISTER', payload, error:true });
 
@@ -53,9 +53,6 @@ describe('PrivateRoute configuration for settings page', () => {
 
 
 describe('PrivateRoute configuration for settings page', () => {
-
-  
-
     test('unauthenticated users cannot access editor page', async () => {
       const payload = {
         errors: "email or password: is invalid",
@@ -63,11 +60,12 @@ describe('PrivateRoute configuration for settings page', () => {
     
       store.dispatch({ type: 'REGISTER', payload, error:true });
     
-    
       const wrapper = mount(
-        <MemoryRouter initialEntries={['/editor']}>
-          <App />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter initialEntries={['/editor']}>
+            <App />
+          </MemoryRouter>
+        </Provider>
       );
       expect(wrapper.find(Editor)).toHaveLength(0);
     });
