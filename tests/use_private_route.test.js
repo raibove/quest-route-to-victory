@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import PrivateRoute from './components/PrivateRoute';
+import App from "./components/App";
 import { MemoryRouter } from 'react-router-dom';
 import Settings from "./components/Settings";
 import Editor from "./components/Editor";
@@ -43,7 +43,7 @@ describe('PrivateRoute configuration for settings page', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/settings']}>
-            <PrivateRoute currentUser={{username:"test", email:"test@mail.com"}} path="/settings" component={Settings} />
+            <App />
           </MemoryRouter>
         </Provider>
       );
@@ -66,7 +66,7 @@ describe('PrivateRoute configuration for settings page', () => {
     
       const wrapper = mount(
         <MemoryRouter initialEntries={['/editor']}>
-          <PrivateRoute currentUser={null} path="/editor" component={Editor} />
+          <App />
         </MemoryRouter>
       );
       expect(wrapper.find(Editor)).toHaveLength(0);
@@ -88,7 +88,7 @@ describe('PrivateRoute configuration for settings page', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/editor']}>
-            <PrivateRoute currentUser={{username:"test", email:"test@mail.com"}} path="/editor" component={Editor} />
+            <App />
           </MemoryRouter>
         </Provider>
       );
