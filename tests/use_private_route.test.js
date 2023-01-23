@@ -10,15 +10,36 @@ import { Provider } from "react-redux";
 
 describe('PrivateRoute configuration for settings page', () => {
     test('unauthenticated users cannot access settings page', async () => {
+
+      const payload = {
+        error: "Register not valid"
+    }
+
+      store.dispatch({ type: 'REGISTER', payload });
+
       const wrapper = mount(
-        <MemoryRouter initialEntries={['/settings']}>
-          <PrivateRoute currentUser={null} path="/settings" component={Settings} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter initialEntries={['/settings']}>
+            <App />
+          </MemoryRouter>
+        </Provider>
       );
       expect(wrapper.find(Settings)).toHaveLength(0);
     });
 
     test('authenticated users can access settings page', async () => {
+
+      const payload = {
+        user: {
+          username: "test-user",
+          email: "test-user@example.com",
+          token: "some-token",
+          role: "user"
+      }
+      }
+
+      store.dispatch({ type: 'REGISTER', payload });
+
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/settings']}>
@@ -32,6 +53,15 @@ describe('PrivateRoute configuration for settings page', () => {
 
 
 describe('PrivateRoute configuration for settings page', () => {
+
+  
+  const payload = {
+    error: "Register not valid"
+  }
+
+  store.dispatch({ type: 'REGISTER', payload });
+
+
     test('unauthenticated users cannot access editor page', async () => {
       const wrapper = mount(
         <MemoryRouter initialEntries={['/editor']}>
@@ -42,6 +72,18 @@ describe('PrivateRoute configuration for settings page', () => {
     });
 
     test('authenticated users can access editor page', async () => {
+
+      const payload = {
+        user: {
+          username: "test-user",
+          email: "test-user@example.com",
+          token: "some-token",
+          role: "user"
+      }
+      }
+
+      store.dispatch({ type: 'REGISTER', payload });
+
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/editor']}>

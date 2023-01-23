@@ -12,7 +12,9 @@ startFlow:
       messages:
       - text: "Hello!! I'm Keen, one of your colleagues here at Anythink."
         delay: 700
-      - text: "We've received a report that users can access all pages without logging in. This is a security vulnerability that we need to address. I need your help to find a page that should only be accessible to logged-in users, but is currently accessible without logging in?"
+      - text: "We've received a report that users can access all pages without logging in. This is a security vulnerability that we need to address."
+        delay: 1200 
+      - text: "Can you help me find a page that should only be accessible to logged-in users, but is currently accessible without logging in?"
         delay: 2000
       - text: "Once you’ve found it, please drop me a message here and :instruction[let me know the route name of that page]. It will help us to investigate and fix the issue."
         delay: 2500
