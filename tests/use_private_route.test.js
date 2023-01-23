@@ -12,10 +12,10 @@ describe('PrivateRoute configuration for settings page', () => {
     test('unauthenticated users cannot access settings page', async () => {
 
       const payload = {
-        error: "Register not valid"
+        errors: "email or password: is invalid",
     }
 
-      store.dispatch({ type: 'REGISTER', payload });
+      store.dispatch({ type: 'REGISTER', payload, error:true });
 
       const wrapper = mount(
         <Provider store={store}>
@@ -38,7 +38,7 @@ describe('PrivateRoute configuration for settings page', () => {
       }
       }
 
-      store.dispatch({ type: 'REGISTER', payload });
+      store.dispatch({ type: 'REGISTER', payload, error: null});
 
       const wrapper = mount(
         <Provider store={store}>
@@ -55,14 +55,15 @@ describe('PrivateRoute configuration for settings page', () => {
 describe('PrivateRoute configuration for settings page', () => {
 
   
-  const payload = {
-    error: "Register not valid"
-  }
-
-  store.dispatch({ type: 'REGISTER', payload });
-
 
     test('unauthenticated users cannot access editor page', async () => {
+      const payload = {
+        errors: "email or password: is invalid",
+      }
+    
+      store.dispatch({ type: 'REGISTER', payload, error:true });
+    
+    
       const wrapper = mount(
         <MemoryRouter initialEntries={['/editor']}>
           <PrivateRoute currentUser={null} path="/editor" component={Editor} />
@@ -82,7 +83,7 @@ describe('PrivateRoute configuration for settings page', () => {
       }
       }
 
-      store.dispatch({ type: 'REGISTER', payload });
+      store.dispatch({ type: 'REGISTER', payload, error: null });
 
       const wrapper = mount(
         <Provider store={store}>
