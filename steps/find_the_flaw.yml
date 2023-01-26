@@ -2,21 +2,22 @@ id: find_the_flaw
 learningObjectives: 
 - Identify which restricted pages are accessible without logging in.
 hints:
-- To know what all routes are configured, check the App.js file.  
+- To see all configured routes, check the App.js file in frontend.
 - Navigate to each route and if you think it should be a restricted route accessible to only authenticated users, message the page name on Snack.
+- Do you think adding a item should be allowed to unauthenticated users?
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "Hello!! I'm Keen, one of your colleagues here at Anythink."
+      - text: "Hi there, hope you're doing well."
         delay: 700
       - text: "We've received a report that users can access all pages without logging in. This is a security vulnerability that we need to address."
         delay: 1200 
-      - text: "Can you help me find a page that should only be accessible to logged-in users, but is currently accessible without logging in?"
+      - text: "In order to help us locate and fix the issue, can you please take a look at the routes in your frontend code and let me know if you find any pages that should only be accessible to logged-in users, but are currently accessible without logging in."
         delay: 2000
-      - text: "Once you’ve found it, please drop me a message here and :instruction[let me know the route name of that page]. It will help us to investigate and fix the issue."
+      - text: "Once you’ve found it, please drop me a message here with :instruction[the route name of that page.]. This will help us pinpoint the exact location of the problem and fix it quickly."
         delay: 2500
 trigger:
   type: user_message
