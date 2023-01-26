@@ -2,10 +2,9 @@ id: guard_the_gates
 learningObjectives: 
 - Create a PrivateRoute component that will redirect the user to Login Page if the user tries to access restricted pages without authentication.
 hints:
-- Create a new file called as `PrivateRoute` in components folder.
-- You can use `react-router-dom` to handle the logic.
-- Make use of currentUser to check if user is logged-in or not & pass it as props to PrivateRoute.
-- Refer to the example from documentation to understand how to create a private route https://v5.reactrouter.com/web/example/auth-workflow
+- Did you create a `PrivateRoute` in components folder.
+- You can use `react-router-dom` to handle the logic, Refer to the example from documentation to understand how to create a private route https://v5.reactrouter.com/web/example/auth-workflow
+- Are you using currentUser to check if user is logged-in or not?
 
 startFlow:
   do:
@@ -13,7 +12,7 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "So, after investigating the issue, we've determined that the problem lies with the routing of our website. Few pages like the **settings** and **editor** page are not properly protected, allowing unauthenticated users to access them. To prevent this from happening in the future, our team has decided to resolve the issue."
+      - text: "So, after investigating the issue, we've determined that the problem lies with how we have set up the routes. We haven't added any private routes to protect these pages. Allowing unauthenticated users to access them. To prevent this from happening in the future, our team has decided to resolve the issue."
         delay: 3500
       - text: "To fix this, you need to create a React Component called as `PrivateRoute` that will handle the protection of these pages."
         delay: 3500
