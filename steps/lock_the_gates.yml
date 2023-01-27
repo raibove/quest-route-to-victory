@@ -84,5 +84,6 @@ githubActions:
   backend:
   frontend:
     capabilities:
-    - enzyme
-    testFile: "use_private_route.test.js"
+      - jest-puppeteer
+      - "puppeteer@18.1.0"
+    testFile: "use_pr.test.js"
