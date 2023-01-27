@@ -1,7 +1,11 @@
 require("dotenv").config();
 const axios = require("axios");
 
-const getToken = async (client) => {
+const getToken = async () => {
+    const client = axios.create({
+        baseURL: `http://localhost:${process.env.PORT || 3000}`,
+        timeout: 10 * 1000,
+    });
     const user = {
         user: {
             username: "engine",
