@@ -82,10 +82,6 @@ trigger:
           - actionId: finish_step
 githubActions:
   backend:
-    capabilities:
-      - axios
-      - dotenv
-    testFile: "backend.js"
   frontend:
     capabilities:
       - jest-puppeteer

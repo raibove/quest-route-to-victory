@@ -1,7 +1,7 @@
 /* eslint-disable */
 const puppeteer = require("puppeteer");
 
-describe("Check for editor", () => {
+describe("Check for unauthenticated access", () => {
     let browser, page;
 
     beforeAll(async () => {
@@ -14,8 +14,8 @@ describe("Check for editor", () => {
         await browser.close();
     });
 
-    it("should redirect if user is not authenticated", async () => {
-        await page.goto("http://localhost:3001", {
+    it("should redirect if user is not authenticated in editor page", async () => {
+        await page.goto("http://localhost:3001/editor", {
             waitUntil: "load",
             timeout: 60000,
         });
@@ -26,14 +26,15 @@ describe("Check for editor", () => {
 
    }, 60000);
 
-   it('should show editor page if user is authenticated', async () => {
-        await page.goto('http://localhost:3001/login');
-        await page.type('input[name=email]', 'engine@wilco.work');
-        await page.type('input[name=password]', 'wilco1234');
-        await page.click('button[type=submit]');
+   it('should redirect if user is not authenticated in settings page', async () => {
+        await page.goto("http://localhost:3001/settings", {
+            waitUntil: "load",
+            timeout: 60000,
+        });
+        page.on("console", (log) => console.log(log.text()));
 
-        await page.goto('http://localhost:3001/editor');
         const currentUrl = await page.url();
-        expect(currentUrl).toBe('http://localhost:3001/editor');
+        expect(currentUrl).not.toBe('http://localhost:3001/settings');
+
     }, 60000);
 });
