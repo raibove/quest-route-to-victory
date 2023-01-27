@@ -14,7 +14,7 @@ describe("Check for editor", () => {
         await browser.close();
     });
 
-    it("not authenticated", async () => {
+    it("should redirect if user is not authenticated", async () => {
         await page.goto("http://localhost:3001", {
             waitUntil: "load",
             timeout: 60000,
@@ -25,4 +25,15 @@ describe("Check for editor", () => {
         expect(currentUrl).not.toBe('http://localhost:3001/editor');
 
    }, 60000);
+
+   it('should show editor page if user is authenticated', async () => {
+        await page.goto('http://localhost:3001/login');
+        await page.type('input[name=email]', 'engine@wilco.work');
+        await page.type('input[name=password]', 'wilco1234');
+        await page.click('button[type=submit]');
+
+        await page.goto('http://localhost:3001/editor');
+        const currentUrl = await page.url();
+        expect(currentUrl).toBe('http://localhost:3001/editor');
+    }, 60000);
 });
